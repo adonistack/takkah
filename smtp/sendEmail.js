@@ -2,15 +2,14 @@ const nodemailer = require('nodemailer');
 
 async function sendEmail({ to, subject, text, html }) {
     let transporter = nodemailer.createTransport({
-        host: 'smtp.titan.email', // Titan's SMTP server
-        port: 587, // SMTP port (commonly 587 for TLS)
-        secure: false, // true for 465, false for other ports
+        host: 'smtp.gmail.email', 
+        port: 587, 
+        secure: false, 
         auth: {
             user: process.env.EMAIL_USERNAME, 
             pass: process.env.EMAIL_PASSWORD  
         },
         tls: {
-            // Do not fail on invalid certs (if needed)
             rejectUnauthorized: false
         }
     });
